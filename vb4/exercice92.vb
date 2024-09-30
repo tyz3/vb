@@ -1,24 +1,30 @@
-﻿﻿Module exercice91
+﻿Imports System.Linq.Expressions
+
+Module exercice92
     Sub Main()
-    Dim note, somme, moyenne, pourcentage As Double
-    Dim nbNotes, nbNotesSup10 As Integer
+        Dim note, somme As Double
+        Dim compteur As Integer
 
-    Console.WriteLine("Entrez une note (-1 pour fin) :")
-    note = Console.ReadLine()
-    While note <> -1
-        If note > 10 Then
-            nbNotesSup10 = nbNotesSup10 + 1
-        End If
-        somme = somme + note
-        nbNotes = nbNotes + 1
-        Console.WriteLine("Entrez une note (-1 pour fin) :")
-        note = Console.ReadLine()
-    End While
-    moyenne = somme / nbNotes
-    pourcentage = nbNotesSup10 / nbNotes * 100
-    Console.WriteLine("Vous avez " + pourcentage.ToString() + " % de notes > à 10")
-    Console.WriteLine("Votre moyenne est de  " + moyenne.ToString())
-    Console.ReadLine()
-End Sub
+        Do
+            Do
+                Console.WriteLine("Note ? (entre 0 et 20, -1 pour sortir)")
+                note = Console.ReadLine()
+                If (note < 0 Or note > 20) And note <> -1 Then
+                    Console.WriteLine("Note entre 0 et 20, -1 pour sortir")
+                End If
+            Loop Until note >= 0 And note <= 20 Or note = -1
+            If note <> -1 Then
+                compteur = compteur + 1
+                somme = somme + note
+            End If
 
+        Loop Until note = -1
+
+        Console.WriteLine(" Somme : " + somme.ToString())
+        Console.WriteLine(" Compteur : " + compteur.ToString())
+        Console.WriteLine(" Moyenne : " + (somme / compteur).ToString())
+
+        Console.ReadLine()
+
+    End Sub
 End Module
