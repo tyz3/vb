@@ -1,4 +1,4 @@
-﻿Module exercice93
+Module exercice93
     Sub Main()
         Dim n As Integer
 
@@ -7,7 +7,6 @@
 
         While n <= 0
             Console.WriteLine("Le nombre doit être supérieur à 0. Veuillez réessayer :")
-            n = CInt(Console.ReadLine())
         End While
 
         Console.WriteLine("Les " & n & " premiers nombres pairs supérieurs à 0 sont :")
@@ -20,4 +19,3 @@
         Console.ReadLine()
     End Sub
 End Module
-
